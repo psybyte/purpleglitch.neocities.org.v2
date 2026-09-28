@@ -30,25 +30,28 @@
   }
 
   const canvas = document.getElementById("noise");
-  if (canvas && canvas.getContext) {
+  const fieldOn = canvas && typeof window.purpleglitchField === "function" && window.purpleglitchField(canvas);
+  if (canvas && canvas.getContext && !fieldOn) {
     const ctx = canvas.getContext("2d", { alpha: true });
-    const width = 128;
-    const height = 72;
-    canvas.width = width;
-    canvas.height = height;
-    window.setInterval(function () {
-      if (document.hidden) return;
-      const image = ctx.createImageData(width, height);
-      const data = image.data;
-      for (let i = 0; i < data.length; i += 4) {
-        const value = Math.random() * 255;
-        data[i] = value;
-        data[i + 1] = value;
-        data[i + 2] = value;
-        data[i + 3] = Math.random() > 0.84 ? 48 : 0;
-      }
-      ctx.putImageData(image, 0, 0);
-    }, 120);
+    if (ctx) {
+      const width = 128;
+      const height = 72;
+      canvas.width = width;
+      canvas.height = height;
+      window.setInterval(function () {
+        if (document.hidden) return;
+        const image = ctx.createImageData(width, height);
+        const data = image.data;
+        for (let i = 0; i < data.length; i += 4) {
+          const value = Math.random() * 255;
+          data[i] = value;
+          data[i + 1] = value;
+          data[i + 2] = value;
+          data[i + 3] = Math.random() > 0.84 ? 48 : 0;
+        }
+        ctx.putImageData(image, 0, 0);
+      }, 120);
+    }
   }
 
   const word = document.getElementById("wordmark");

@@ -84,6 +84,13 @@
   mix-blend-mode: overlay;
 }
 
+#noise.is-field {
+  z-index: -1;
+  opacity: 1;
+  mix-blend-mode: normal;
+  image-rendering: pixelated;
+}
+
 .wipe {
   position: fixed;
   inset: 0;
