@@ -1,6 +1,10 @@
 {
   "en": {
     "lang.group": "Language",
+    "chat.open": "Chat",
+    "chat.title": "Chat",
+    "chat.close": "Close",
+    "chat.frame": "Chat",
     "nav.label": "Sections",
     "skip": "Skip to content",
     "nav.home": "Home",
@@ -45,6 +49,10 @@
   },
   "es": {
     "lang.group": "Idioma",
+    "chat.open": "Chat",
+    "chat.title": "Chat",
+    "chat.close": "Cerrar",
+    "chat.frame": "Chat",
     "nav.label": "Secciones",
     "skip": "Saltar al contenido",
     "nav.home": "Inicio",

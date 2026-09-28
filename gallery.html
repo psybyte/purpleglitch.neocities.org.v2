@@ -34,9 +34,12 @@
     <div class="status">
       <a class="brand hit" href="index.html">purpleglitch</a>
       <p class="readout" aria-hidden="true"><span>SIGNAL</span><span id="signal-hex">0x0000</span><span id="signal-clock">00:00:00</span></p>
-      <div class="lang" role="group" data-i18n-attr="aria-label:lang.group">
-        <button type="button" data-set-lang="en">EN</button>
-        <button type="button" data-set-lang="es">ES</button>
+      <div class="tools">
+        <button type="button" class="chat-open" data-chat-open aria-haspopup="dialog" aria-controls="chat-pop" aria-expanded="false" data-i18n="chat.open">Chat</button>
+        <div class="lang" role="group" data-i18n-attr="aria-label:lang.group">
+          <button type="button" data-set-lang="en">EN</button>
+          <button type="button" data-set-lang="es">ES</button>
+        </div>
       </div>
     </div>
     <nav class="index-nav" data-i18n-attr="aria-label:nav.label">
@@ -70,6 +73,15 @@
     <p class="kicker">SIGNAL</p>
     <p class="intro-line" id="intro-line" data-i18n="intro.line">Acquiring signal</p>
     <button type="button" class="intro-skip" data-i18n="intro.skip">Skip</button>
+  </div>
+  <div class="chat-pop" id="chat-pop" hidden>
+    <div class="chat-panel" role="dialog" aria-modal="true" aria-labelledby="chat-title">
+      <div class="chat-bar">
+        <p class="kicker" id="chat-title"><span class="num">00</span> <span data-i18n="chat.title">Chat</span></p>
+        <button type="button" class="chat-close" data-chat-close data-i18n="chat.close">Close</button>
+      </div>
+      <iframe class="chat-frame" data-chat-frame title="Chat" data-i18n-attr="title:chat.frame" data-src="https://www5.cbox.ws/box/?boxid=967348&amp;boxtag=Vau1Hb&amp;theme=11" allow="autoplay" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
   </div>
   <script src="js/site.js"></script>
   <script src="js/field.js"></script>

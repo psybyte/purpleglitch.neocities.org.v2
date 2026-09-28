@@ -115,7 +115,8 @@ a {
 .status {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
   padding: 0.5rem 1rem;
   border-bottom: 1px solid rgba(179, 136, 255, 0.35);
 }
@@ -145,18 +146,86 @@ a {
   color: var(--cyan);
 }
 
-.lang {
+.tools {
   display: flex;
-  gap: 0.3rem;
+  align-items: center;
+  gap: 0.45rem;
+  margin-left: auto;
 }
 
-.lang button {
+.chat-open,
+.lang button,
+.chat-close {
   background: transparent;
   border: 1px solid var(--line);
   color: var(--muted);
   padding: 0.2rem 0.5rem;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
   cursor: pointer;
+}
+
+.chat-open:hover,
+.chat-open:focus-visible,
+.chat-open[aria-expanded="true"] {
+  background: var(--acid);
+  color: var(--ink-on-acid);
+  border-color: var(--acid);
+}
+
+.lang {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.chat-pop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(7, 6, 11, 0.78);
+}
+
+.chat-panel {
+  width: min(440px, 100%);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 22px) 100%, 0 100%);
+  padding: 0.85rem 1.05rem 1.55rem;
+}
+
+.chat-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.chat-bar .kicker {
+  margin: 0;
+}
+
+.chat-close {
+  border-color: var(--cyan);
+  color: var(--ink);
+}
+
+.chat-close:hover,
+.chat-close:focus-visible {
+  background: var(--cyan);
+  color: var(--ink-on-acid);
+}
+
+.chat-frame {
+  display: block;
+  width: 100%;
+  height: min(450px, calc(100vh - 9rem));
+  min-height: 280px;
+  border: 0;
+  background: #161616;
 }
 
 html[data-lang="en"] .lang [data-set-lang="en"],

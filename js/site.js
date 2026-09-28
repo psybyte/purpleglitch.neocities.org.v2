@@ -309,6 +309,47 @@
     });
   });
 
+  function setupChat() {
+    const openBtn = document.querySelector("[data-chat-open]");
+    const pop = document.getElementById("chat-pop");
+    const closeBtn = pop && pop.querySelector("[data-chat-close]");
+    const frame = pop && pop.querySelector("[data-chat-frame]");
+    if (!openBtn || !pop || !closeBtn || !frame) return;
+
+    let lastFocus = null;
+
+    function openChat() {
+      lastFocus = document.activeElement;
+      if (!frame.getAttribute("src")) {
+        const src = frame.getAttribute("data-src");
+        if (src) frame.src = src;
+      }
+      pop.hidden = false;
+      openBtn.setAttribute("aria-expanded", "true");
+      if (introDone) setBlocked(true);
+      closeBtn.focus();
+    }
+
+    function closeChat() {
+      if (pop.hidden) return;
+      pop.hidden = true;
+      openBtn.setAttribute("aria-expanded", "false");
+      if (introDone) setBlocked(false);
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    openBtn.addEventListener("click", openChat);
+    closeBtn.addEventListener("click", closeChat);
+    pop.addEventListener("click", function (event) {
+      if (event.target === pop) closeChat();
+    });
+    document.addEventListener("keydown", function (event) {
+      if (pop.hidden || event.key !== "Escape") return;
+      event.preventDefault();
+      closeChat();
+    });
+  }
+
   async function init() {
     let site = {};
     let gallery = [];
@@ -332,5 +373,6 @@
   }
 
   setupIntro();
+  setupChat();
   init();
 })();
