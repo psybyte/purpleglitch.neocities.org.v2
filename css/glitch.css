@@ -1,0 +1,215 @@
+.ghost {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ghost-a {
+  color: var(--magenta);
+}
+
+.ghost-b {
+  color: var(--cyan);
+}
+
+.display.is-glitching {
+  animation: slice 0.38s steps(2, end);
+}
+
+.display.is-glitching .ghost {
+  opacity: 0.8;
+}
+
+.display.is-glitching .ghost-a {
+  transform: translate(-6px, 0);
+}
+
+.display.is-glitching .ghost-b {
+  transform: translate(6px, 0);
+}
+
+@keyframes slice {
+  0% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+  25% {
+    clip-path: inset(12% 0 52% 0);
+    transform: translate(-6px, 1px);
+  }
+  50% {
+    clip-path: inset(46% 0 18% 0);
+    transform: translate(6px, -1px);
+  }
+  75% {
+    clip-path: inset(72% 0 4% 0);
+    transform: translate(-3px, 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+}
+
+.hit:hover,
+.hit:focus-visible {
+  text-shadow: -2px 0 var(--magenta), 2px 0 var(--cyan);
+}
+
+.scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.22) 0 1px,
+    transparent 1px 3px
+  );
+  opacity: 0.28;
+}
+
+#noise {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+}
+
+.wipe {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.wipe i {
+  flex: 1;
+  transform: scaleY(1);
+  transform-origin: top;
+}
+
+.wipe i:nth-child(1) { background: var(--purple); animation-delay: 0.02s; }
+.wipe i:nth-child(2) { background: #100e16; animation-delay: 0.06s; }
+.wipe i:nth-child(3) { background: var(--cyan); animation-delay: 0.1s; }
+.wipe i:nth-child(4) { background: var(--acid); animation-delay: 0.14s; }
+.wipe i:nth-child(5) { background: #100e16; animation-delay: 0.18s; }
+.wipe i:nth-child(6) { background: var(--magenta); animation-delay: 0.22s; }
+.wipe i:nth-child(7) { background: var(--purple); animation-delay: 0.26s; }
+.wipe i:nth-child(8) { background: var(--bg); animation-delay: 0.3s; }
+
+html.skip-intro .wipe i,
+html.play-wipe .wipe i {
+  animation: wipe-out 0.72s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+@keyframes wipe-out {
+  to {
+    transform: scaleY(0);
+  }
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  padding: 8vh 6vw;
+  background: var(--bg);
+}
+
+html.skip-intro .intro {
+  display: none;
+}
+
+.intro-line {
+  margin: 0;
+  max-width: 12ch;
+  color: var(--acid);
+  font-family: "Teko", "Arial Narrow", sans-serif;
+  font-size: clamp(3.4rem, 10vw, 8rem);
+  font-weight: 500;
+  line-height: 0.82;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  animation: slice 0.45s steps(2, end) 2;
+}
+
+.intro-skip {
+  align-self: flex-start;
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--cyan);
+  padding: 0.45rem 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.intro-skip:hover,
+.intro-skip:focus-visible {
+  background: var(--cyan);
+  color: var(--ink-on-acid);
+}
+
+.shot-frame .slice {
+  position: absolute;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.shot-frame .slice img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 600%;
+  max-width: none;
+  object-fit: cover;
+  transform: translateX(0);
+  transition: transform 0.12s linear;
+}
+
+.shot-frame:hover .slice img,
+.shot-frame:focus-visible .slice img {
+  transform: translateX(var(--shift));
+}
+
+.cta:hover,
+.cta:focus-visible {
+  transform: translate(3px, -1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wipe,
+  .intro {
+    display: none !important;
+  }
+
+  .display.is-glitching,
+  .intro-line,
+  .shot-frame .slice img,
+  .cta:hover,
+  .cta:focus-visible {
+    animation: none;
+    transform: none;
+    transition: none;
+  }
+
+  .display.is-glitching .ghost {
+    opacity: 0;
+  }
+}

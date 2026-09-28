@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery — purpleglitch</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%2307060b' width='32' height='32'/%3E%3Cpath fill='%23b388ff' d='M2 6h28v6H2zm0 10h18v6H2z'/%3E%3Cpath fill='%233dfff2' d='M2 22h10v4H2z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Teko:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/glitch.css">
+  <script>
+    (function () {
+      var reduce = false;
+      try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+      var seen = false;
+      try { seen = sessionStorage.getItem("purpleglitch-intro") === "1"; } catch (e2) {}
+      if (reduce || seen) document.documentElement.classList.add("skip-intro");
+      var lang = "en";
+      try { if (localStorage.getItem("purpleglitch-lang") === "es") lang = "es"; } catch (e3) {}
+      document.documentElement.lang = lang;
+      document.documentElement.setAttribute("data-lang", lang);
+    })();
+  </script>
+  <noscript><style>.intro{display:none !important} html[data-lang="es"] body{visibility:visible}</style></noscript>
+</head>
+<body data-page="gallery" data-title-key="title.gallery">
+  <a class="skip" href="#content" data-i18n="skip">Skip to content</a>
+  <div class="scanlines" aria-hidden="true"></div>
+  <canvas id="noise" aria-hidden="true"></canvas>
+  <div class="wipe" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <header class="top">
+    <div class="status">
+      <a class="brand hit" href="index.html">purpleglitch</a>
+      <p class="readout" aria-hidden="true"><span>SIGNAL</span><span id="signal-hex">0x0000</span><span id="signal-clock">00:00:00</span></p>
+      <div class="lang" role="group" data-i18n-attr="aria-label:lang.group">
+        <button type="button" data-set-lang="en">EN</button>
+        <button type="button" data-set-lang="es">ES</button>
+      </div>
+    </div>
+    <nav class="index-nav" data-i18n-attr="aria-label:nav.label">
+      <a href="index.html" data-nav="home"><span class="num">01</span><span data-i18n="nav.home">Home</span></a>
+      <a href="music.html" data-nav="music"><span class="num">02</span><span data-i18n="nav.music">Music</span></a>
+      <a href="gallery.html" data-nav="gallery" aria-current="page"><span class="num">03</span><span data-i18n="nav.gallery">Gallery</span></a>
+      <a href="about.html" data-nav="about"><span class="num">04</span><span data-i18n="nav.about">About</span></a>
+      <a href="links.html" data-nav="links"><span class="num">05</span><span data-i18n="nav.links">Links</span></a>
+      <a href="guestbook.html" data-nav="guestbook"><span class="num">06</span><span data-i18n="nav.guestbook">Guestbook</span></a>
+    </nav>
+  </header>
+  <main id="content" class="wrap" tabindex="-1">
+    <p class="kicker"><span class="num">03</span> <span data-i18n="nav.gallery">Gallery</span></p>
+    <h1 class="page-title" data-i18n="nav.gallery">Gallery</h1>
+    <p class="lead" data-i18n="gallery.lead">Pictures edited until the signal breaks.</p>
+    <div id="gallery-root"></div>
+    <article class="panel" id="gallery-empty" hidden>
+      <h2 data-i18n="gallery.empty">No frames yet</h2>
+      <p data-i18n="gallery.hint">Drop a file in media/gallery/ and add an entry to data/gallery.json with src and title.</p>
+    </article>
+    <div class="panel guestbook-shell" id="instagram-shell">
+      <iframe id="instagram-frame" class="instagram-frame" src="https://www.instagram.com/purple.gl1tch/embed/" title="Instagram" data-i18n-attr="title:gallery.frame" loading="lazy"></iframe>
+    </div>
+    <a class="link-out hit" id="instagram-open" href="https://www.instagram.com/purple.gl1tch/" target="_blank" rel="noopener noreferrer" data-i18n="gallery.open">Open Instagram in a new tab</a>
+  </main>
+  <footer class="micro wrap">
+    <span>FRAME</span>
+    <span data-i18n="footer.line">Local node</span>
+  </footer>
+  <div class="intro" id="intro" role="dialog" aria-modal="true" aria-labelledby="intro-line">
+    <p class="kicker">SIGNAL</p>
+    <p class="intro-line" id="intro-line" data-i18n="intro.line">Acquiring signal</p>
+    <button type="button" class="intro-skip" data-i18n="intro.skip">Skip</button>
+  </div>
+  <script src="js/site.js"></script>
+  <script src="js/glitch.js"></script>
+</body>
+</html>

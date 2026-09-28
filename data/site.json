@@ -1,0 +1,33 @@
+{
+  "guestbook": "https://purpleglitch.atabook.org/",
+  "instagram": "https://www.instagram.com/purple.gl1tch/embed/",
+  "embeds": {
+    "spotify": "https://open.spotify.com/intl-es/artist/3RDfBjQJpd2E9iW1OG8zkF?si=MweGz4m1ThKRvE3Awh02oQ",
+    "bandcamp": "",
+    "soundcloud": "https://soundcloud.com/purplehue95"
+  },
+  "profiles": [
+    { "id": "spotify", "label": "Spotify", "url": "https://open.spotify.com/intl-es/artist/3RDfBjQJpd2E9iW1OG8zkF?si=MweGz4m1ThKRvE3Awh02oQ" },
+    { "id": "bandcamp", "label": "Bandcamp", "url": "https://didacvm.bandcamp.com/" },
+    { "id": "soundcloud", "label": "Soundcloud", "url": "https://soundcloud.com/purplehue95" },
+    { "id": "instagram", "label": "Instagram", "url": "https://www.instagram.com/purple.gl1tch/" }
+  ],
+  "bandcamp": [
+    { "title": "stop the problems", "url": "https://didacvm.bandcamp.com/album/stop-the-problems", "id": "301658728" },
+    { "title": "DDM", "url": "https://didacvm.bandcamp.com/album/ddm", "id": "2439823854" },
+    { "title": "beat stash number two", "url": "https://didacvm.bandcamp.com/album/beat-stash-number-two", "id": "3808792135" },
+    { "title": "shadow walking", "url": "https://didacvm.bandcamp.com/album/shadow-walking", "id": "3091109236" },
+    { "title": "running for my life", "url": "https://didacvm.bandcamp.com/album/running-for-my-life", "id": "2677701260" },
+    { "title": "eighteen", "url": "https://didacvm.bandcamp.com/album/eighteen", "id": "4162019432" },
+    { "title": "Breakcore Tonight", "url": "https://didacvm.bandcamp.com/album/breakcore-tonight", "id": "4146706128" },
+    { "title": "NOJAzzz", "url": "https://didacvm.bandcamp.com/album/nojazzz", "id": "1203299198" },
+    { "title": "Synth Surge", "url": "https://didacvm.bandcamp.com/album/synth-surge", "id": "3372160088" },
+    { "title": "beat stash 1", "url": "https://didacvm.bandcamp.com/album/beat-stash-1", "id": "1932468736" },
+    { "title": "TRIbe", "url": "https://didacvm.bandcamp.com/album/tribe", "id": "2744187875" },
+    { "title": "sculpture", "url": "https://didacvm.bandcamp.com/album/sculpture", "id": "3300801502" },
+    { "title": "Soricidae", "url": "https://didacvm.bandcamp.com/album/soricidae", "id": "2895140237" },
+    { "title": "14 minutes and 29 seconds without digital", "url": "https://didacvm.bandcamp.com/album/14-minutes-and-29-seconds-without-digital", "id": "3085177414" },
+    { "title": "Chrysanthemum", "url": "https://didacvm.bandcamp.com/album/chrysanthemum", "id": "436672003" },
+    { "title": "HUMANISM", "url": "https://didacvm.bandcamp.com/album/humanism", "id": "4236437561" }
+  ]
+}
